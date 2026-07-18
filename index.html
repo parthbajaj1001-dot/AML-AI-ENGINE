@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <meta name="description" content="Detect AML layering patterns, suspicious transactions, mule accounts, crypto wallet risks using AI-powered risk scoring and reasoning."/>
+  <meta name="keywords" content="AML detection software, anti money laundering AI, suspicious transaction monitoring, AML layering detection, financial crime detection, transaction risk scoring, crypto AML monitoring"/>
+  <meta property="og:title" content="AML Shield AI — Next-Gen Anti Money Laundering Platform"/>
+  <meta property="og:description" content="AI-powered AML layering detection with 3D transaction graphs, live threat intelligence, neural network visualization, and automated SAR generation."/>
+  <title>AML Shield AI — AI-Powered AML Layering Detection Platform</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<!-- ░░ SCROLL PROGRESS ░░ -->
+<div id="scroll-progress"></div>
+
+<!-- ░░ CURSOR GLOW ░░ -->
+<div id="cursor-glow"></div>
+
+<!-- ░░ LOADER ░░ -->
+<div id="loader">
+  <canvas id="loader-canvas"></canvas>
+  <div class="loader-ui">
+    <div class="loader-rings">
+      <div class="lr lr1"></div><div class="lr lr2"></div><div class="lr lr3"></div>
+    </div>
+    <div class="loader-center">
+      <div class="loader-hex">
+        <i class="fas fa-shield-halved"></i>
+      </div>
+      <div class="loader-brand-wrap">
+        <span class="loader-brand" id="loader-brand-text"></span>
+        <span class="loader-cursor">|</span>
+      </div>
+      <div class="loader-sub">INITIALIZING DETECTION ENGINE v4.0</div>
+    </div>
+    <div class="loader-bar-wrap">
+      <div class="loader-bar"><div id="loader-fill"></div></div>
+      <div id="loader-pct">0%</div>
+    </div>
+    <div class="loader-log" id="loader-log">
+      <div class="ll active" id="ll-0"><span class="ll-dot"></span> Connecting to AI Engine...</div>
+      <div class="ll" id="ll-1"><span class="ll-dot"></span> Loading Neural Network Models...</div>
+      <div class="ll" id="ll-2"><span class="ll-dot"></span> Building 3D Transaction Graph Network...</div>
+      <div class="ll" id="ll-3"><span class="ll-dot"></span> Initializing Behavioral Analysis Engine...</div>
+      <div class="ll" id="ll-4"><span class="ll-dot"></span> Scanning Global Threat Intelligence...</div>
+      <div class="ll ll-success" id="ll-5"><span class="ll-dot"></span> System Ready — All Systems Operational</div>
+    </div>
+  </div>
+</div>
+
+<!-- ░░ LIVE ALERT TICKER ░░ -->
+<div id="alert-ticker">
+  <div class="ticker-label"><i class="fas fa-bolt"></i> LIVE</div>
+  <div class="ticker-track" id="ticker-track">
+    <div class="ticker-inner" id="ticker-inner"></div>
+  </div>
+</div>
+
+<!-- ░░ NAVBAR ░░ -->
+<nav id="navbar">
+  <div class="nav-container">
+    <a href="#hero" class="nav-logo">
+      <div class="nav-logo-icon"><i class="fas fa-shield-halved"></i></div>
+      <span>AML Shield<em> AI</em></span>
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#scanner">Scanner</a></li>
+      <li><a href="#dashboard">Dashboard</a></li>
+      <li><a href="#neural-viz">Neural AI</a></li>
+      <li><a href="#behavior">Behavior</a></li>
+      <li><a href="#threat-map">Threat Map</a></li>
+      <li><a href="#case-board">Cases</a></li>
+      <li><a href="#heatmap">Heatmap</a></li>
+      <li><a href="#entity-graph">Graph</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="nav-live-dot"><span></span> Live</div>
+      <a href="#scanner" class="btn-nav ripple">Start Scan</a>
+      <button id="theme-toggle" aria-label="Toggle theme"><i class="fas fa-sun"></i></button>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+<!-- ░░  HERO — FULL 3D THREE.JS SCENE ░░ -->
+<!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+<section id="hero">
+  <div id="three-container"></div>
+  <div class="hero-overlay"></div>
+  <canvas id="particle-canvas"></canvas>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span class="eyebrow-dot"></span>
+      <span>AI ENGINE ACTIVE</span>
+      <span class="eyebrow-sep">|</span>
+      <span class="eyebrow-live">REAL-TIME MONITORING</span>
+      <span class="eyebrow-sep">|</span>
+      <span class="eyebrow-version">v4.0 ULTIMATE</span>
+    </div>
+    <h1 class="hero-title">
+      <span class="ht-line ht-small">Next-Generation</span>
+      <span class="ht-line ht-big gradient-text">AML Detection</span>
+      <span class="ht-line ht-big gradient-text-2">Intelligence</span>
+    </h1>
+    <p class="hero-sub">Detect suspicious money movement, hidden transaction chains, mule accounts, crypto routes, and high-risk financial behavior using AI reasoning, graph neural networks, and real-time risk scoring.</p>
+
+    <div class="hero-cta">
+      <a href="#scanner" class="btn-hero-primary ripple">
+        <span class="btn-glow"></span>
+        <i class="fas fa-radar"></i> Start AML Scan
+      </a>
+      <a href="#neural-viz" class="btn-hero-secondary ripple">
+        <i class="fas fa-brain"></i> Neural AI Visualizer
+      </a>
+      <a href="#threat-map" class="btn-hero-ghost ripple">
+        <i class="fas fa-globe"></i> Threat Map
+      </a>
+    </div>
+
+    <div class="hero-metrics">
+      <div class="hm-item">
+        <div class="hm-val" data-count="2400000" data-suffix="+">0</div>
+        <div class="hm-label">Transactions Analyzed</div>
+        <div class="hm-bar"><div style="width:88%"></div></div>
+      </div>
+      <div class="hm-sep"></div>
+      <div class="hm-item">
+        <div class="hm-val" data-count="98" data-suffix=".7%">0</div>
+        <div class="hm-label">Detection Accuracy</div>
+        <div class="hm-bar"><div style="width:98.7%"></div></div>
+      </div>
+      <div class="hm-sep"></div>
+      <div class="hm-item">
+        <div class="hm-val" data-count="12400" data-suffix="+">0</div>
+        <div class="hm-label">Suspicious Patterns</div>
+        <div class="hm-bar"><div style="width:65%"></div></div>
+      </div>
+      <div class="hm-sep"></div>
+      <div class="hm-item">
+        <div class="hm-val" data-count="1" data-suffix=".8s">&lt;</div>
+        <div class="hm-label">Avg. Scan Speed</div>
+        <div class="hm-bar"><div style="width:95%"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3D floating cards around the scene -->
+  <div class="hero-float-cards" id="hero-float-cards">
+    <div class="hfc hfc-1 glass-card"><i class="fas fa-triangle-exclamation"></i> Layering Chain Detected <span class="hfc-score high">91</span></div>
+    <div class="hfc hfc-2 glass-card"><i class="fas fa-arrows-spin"></i> Circular Transfer <span class="hfc-score med">74</span></div>
+    <div class="hfc hfc-3 glass-card"><i class="fas fa-bitcoin-sign"></i> Crypto Mixing Found <span class="hfc-score high">88</span></div>
+    <div class="hfc hfc-4 glass-card"><i class="fas fa-user-secret"></i> Mule Account Flag <span class="hfc-score high">82</span></div>
+    <div class="hfc hfc-5 glass-card"><i class="fas fa-globe"></i> Sanctioned Country <span class="hfc-score high">95</span></div>
+  </div>
+
+  <div class="hero-scroll-hint"><i class="fas fa-chevron-down"></i></div>
+</section>
+
+<!-- ░░ PROBLEM SECTION ░░ -->
+<section id="problem" class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag"><i class="fas fa-circle-info"></i> Understanding the Threat</span>
+      <h2>What Is <span class="gradient-text">AML Layering?</span></h2>
+      <p>The second — and most dangerous — stage of money laundering. Criminals move illegal funds through cascading networks of accounts, shell companies, crypto wallets, and jurisdictions to destroy the audit trail.</p>
+    </div>
+    <div class="problem-stages">
+      <div class="stage-card glass-card" data-tilt>
+        <div class="stage-bg-num">01</div>
+        <div class="stage-icon stage-blue"><i class="fas fa-arrow-right-to-bracket"></i></div>
+        <h3>Placement</h3>
+        <p>Illegal money enters the financial system via cash deposits, smurfing, or structuring to avoid detection thresholds.</p>
+        <div class="stage-bar bar-blue"></div>
+      </div>
+      <div class="stage-connector">
+        <div class="sc-line"></div>
+        <div class="sc-arrow"><i class="fas fa-chevron-right"></i></div>
+      </div>
+      <div class="stage-card glass-card stage-focus" data-tilt>
+        <div class="stage-bg-num">02</div>
+        <div class="stage-badge">AI FOCUS</div>
+        <div class="stage-icon stage-red"><i class="fas fa-arrows-spin"></i></div>
+        <h3>Layering</h3>
+        <p>Money is moved through complex chains — multiple accounts, wire transfers, crypto conversions — to hide its origin.</p>
+        <div class="stage-bar bar-red"></div>
+      </div>
+      <div class="stage-connector">
+        <div class="sc-line"></div>
+        <div class="sc-arrow"><i class="fas fa-chevron-right"></i></div>
+      </div>
+      <div class="stage-card glass-card" data-tilt>
+        <div class="stage-bg-num">03</div>
+        <div class="stage-icon stage-green"><i class="fas fa-building-columns"></i></div>
+        <h3>Integration</h3>
+        <p>Laundered money re-enters the economy appearing legitimate through real estate, businesses, or luxury investments.</p>
+        <div class="stage-bar bar-green"></div>
+      </div>
+    </div>
+    <div class="problem-stat-row">
+      <div class="psr-item glass-card">
+        <span class="psr-num gradient-text">$2T</span>
+        <span class="psr-label">Laundered Annually (UN estimate)</span>
+      </div>
+      <div class="psr-item glass-card">
+        <span class="psr-num gradient-text">1%</span>
+        <span class="psr-label">Cases Successfully Prosecuted</span>
+      </div>
+      <div class="psr-item glass-card">
+        <span class="psr-num gradient-text">340+</span>
+        <span class="psr-label">FATF-Member Countries Affected</span>
+      </div>
+      <div class="psr-item glass-card">
+        <span class="psr-num gradient-text">AI</span>
+        <span class="psr-label">Is Now the Primary Defense</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ FEATURES ░░ -->
+<section id="features" class="section section-dark">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag"><i class="fas fa-microchip"></i> Platform Capabilities</span>
+      <h2>Advanced AML <span class="gradient-text">Detection Features</span></h2>
+      <p>8 AI-powered modules working in concert to surface financial crime across banking, crypto, and cross-border networks.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card glass-card" data-tilt>
+        <div class="fc-glow"></div>
+        <div class="feat-icon-wrap"><i class="fas fa-chart-line"></i></div>
+        <h3>Transaction Pattern Analysis</h3>
+        <p>Detects unusual movement across accounts. Identifies smurfing, structuring, and velocity anomalies using behavioral AI.</p>
+        <div class="feat-footer"><span class="feat-tag">Core Engine</span><span class="feat-accuracy">99.1%</span></div>
+      </div>
+      <div class="feature-card glass-card" data-tilt>
+        <div class="fc-glow fc-glow-red"></div>
+        <div class="feat-icon-wrap icon-red"><i class="fas fa-link"></i></div>
+        <h3>Layering Chain Detection</h3>
+        <p>Finds circular flows, split transactions, rapid multi-hop transfers across complex networks using graph traversal AI.</p>
+        <div class="feat-footer"><span class="feat-tag feat-tag-red">AI Powered</span><span class="feat-accuracy">98.3%</span></div>
+      </div>
+      <div class="feature-card glass-card" data-tilt>
+        <div class="fc-glow fc-glow-purple"></div>
+        <div class="feat-icon-wrap icon-purple"><i class="fas fa-bitcoin-sign"></i></div>
+        <h3>Crypto Wallet Monitoring</h3>
+        <p>Tracks 50+ blockchain networks. Identifies mixing, tumbling, chain-hopping, and DeFi-based laundering strategies.</p>
+        <div class="feat-footer"><span class="feat-tag feat-tag-purple">Blockchain</span><span class="feat-accuracy">97.8%</span></div>
+      </div>
+      <div class="feature-card glass-card" data-tilt>
+        <div class="fc-glow fc-glow-orange"></div>
+        <div class="feat-icon-wrap icon-orange"><i class="fas fa-user-secret"></i></div>
+        <h3>Mule Account Detection</h3>
+        <p>Identifies dormant-to-active patterns, rapid in/out flows, and multi-source collection indicative of mule networks.</p>
+        <div class="feat-footer"><span class="feat-tag feat-tag-orange">Behavioral AI</span><span class="feat-accuracy">96.4%</span></div>
+      </div>
+      <div class="feature-card glass-card" data-tilt>
+        <div class="fc-glow"></div>
+        <div class="feat-icon-wrap icon-cyan"><i class="fas fa-globe"></i></div>
+        <h3>Sanction List Screening</h3>
+        <p>Real-time screening against OFAC, UN, EU, RBI sanction lists. Instant alerts on restricted entities and geographies.</p>
+        <div class="feat-footer"><span class="feat-tag">Compliance</span><span class="feat-accuracy">100%</span></div>
+      </div>
+      <div class="feature-card glass-card" data-tilt>
+        <div class="fc-glow fc-glow-red"></div>
+        <div class="feat-icon-wrap icon-red"><i class="fas fa-file-shield"></i></div>
+        <h3>Automated SAR Generation</h3>
+        <p>AI-generated Suspicious Activity Reports with evidence chain, AI reasoning, and FIU-IND compliant formatting.</p>
+        <div class="feat-footer"><span class="feat-tag feat-tag-red">Automation</span><span class="feat-accuracy">Auto</span></div>
+      </div>
+      <div class="feature-card glass-card" data-tilt>
+        <div class="fc-glow fc-glow-purple"></div>
+        <div class="feat-icon-wrap icon-green"><i class="fas fa-brain"></i></div>
+        <h3>Explainable AI (XAI)</h3>
+        <p>Every decision explained in natural language. Compliance teams understand why each transaction was flagged.</p>
+        <div class="feat-footer"><span class="feat-tag feat-tag-purple">XAI</span><span class="feat-accuracy">v3.5</span></div>
+      </div>
+      <div class="feature-card glass-card" data-tilt>
+        <div class="fc-glow fc-glow-orange"></div>
+        <div class="feat-icon-wrap icon-orange"><i class="fas fa-network-wired"></i></div>
+        <h3>Graph Neural Network Engine</h3>
+        <p>Maps entire money flow networks visually. Identifies hidden relationships between accounts across jurisdictions.</p>
+        <div class="feat-footer"><span class="feat-tag feat-tag-orange">Deep Learning</span><span class="feat-accuracy">GNN</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ SCANNER ░░ -->
+<section id="scanner" class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag"><i class="fas fa-radar"></i> Live AML Engine</span>
+      <h2>AML Risk <span class="gradient-text">Scanner</span></h2>
+      <p>Enter transaction details. Our AI engine will analyze patterns, assign a risk score, and generate compliance reasoning — instantly.</p>
+    </div>
+    <div class="scanner-layout">
+      <!-- FORM -->
+      <div class="scanner-form glass-card">
+        <div class="sf-header">
+          <div class="sf-status"><span class="sf-dot"></span> AI Engine Ready</div>
+          <div class="sf-id">ENGINE v4.0 ULTIMATE</div>
+        </div>
+        <div class="form-grid">
+          <div class="form-group"><label><i class="fas fa-arrow-right-from-bracket"></i> Sender Account ID</label><input type="text" id="sender-id" placeholder="ACC-4782 or 0xA3b4..."/></div>
+          <div class="form-group"><label><i class="fas fa-arrow-right-to-bracket"></i> Receiver Account ID</label><input type="text" id="receiver-id" placeholder="ACC-9021 or WALLET-89X"/></div>
+          <div class="form-group"><label><i class="fas fa-indian-rupee-sign"></i> Transaction Amount (₹)</label><input type="number" id="amount" placeholder="850000" min="0"/></div>
+          <div class="form-group"><label><i class="fas fa-repeat"></i> Frequency (per day)</label><input type="number" id="frequency" placeholder="12" min="1"/></div>
+          <div class="form-group"><label><i class="fas fa-globe"></i> Country of Transaction</label>
+            <select id="country">
+              <option value="">Select Country</option>
+              <option value="india">India</option><option value="usa">United States</option><option value="uk">United Kingdom</option>
+              <option value="uae">UAE</option><option value="cayman">Cayman Islands</option><option value="panama">Panama</option>
+              <option value="myanmar">Myanmar</option><option value="iran">Iran</option><option value="russia">Russia</option>
+              <option value="northkorea">North Korea</option><option value="nigeria">Nigeria</option><option value="pakistan">Pakistan</option>
+              <option value="switzerland">Switzerland</option><option value="singapore">Singapore</option>
+            </select>
+          </div>
+          <div class="form-group"><label><i class="fas fa-arrows-left-right"></i> Transaction Type</label>
+            <select id="tx-type">
+              <option value="bank">Bank Transfer</option><option value="crypto">Crypto Transfer</option>
+              <option value="business">Business Payment</option><option value="cash">Cash Deposit</option>
+              <option value="wire">International Wire</option>
+            </select>
+          </div>
+          <div class="form-group"><label><i class="fas fa-clock"></i> Time Gap (hours)</label><input type="number" id="time-gap" placeholder="2" min="0" step="0.5"/></div>
+          <div class="form-group"><label><i class="fas fa-sitemap"></i> Accounts Involved</label><input type="number" id="num-accounts" placeholder="7" min="1"/></div>
+        </div>
+        <button class="btn-scan ripple" id="analyze-btn" onclick="analyzeRisk()">
+          <span class="btn-scan-pulse"></span>
+          <i class="fas fa-radar"></i> Analyze AML Risk
+          <i class="fas fa-arrow-right ml-auto"></i>
+        </button>
+      </div>
+
+      <!-- SCAN ANIMATION -->
+      <div class="scanner-scanning glass-card" id="scan-scanning" style="display:none">
+        <div class="ss-rings"><div class="ssr r1"></div><div class="ssr r2"></div><div class="ssr r3"></div></div>
+        <div class="ss-icon"><i class="fas fa-radar"></i></div>
+        <div class="ss-steps" id="ss-steps">
+          <div class="ss-step active" id="sstep-1"><i class="fas fa-circle-dot"></i> Connecting to AI Engine...</div>
+          <div class="ss-step" id="sstep-2"><i class="fas fa-circle"></i> Analyzing Transaction Patterns...</div>
+          <div class="ss-step" id="sstep-3"><i class="fas fa-circle"></i> Detecting Layering Chains...</div>
+          <div class="ss-step" id="sstep-4"><i class="fas fa-circle"></i> Calculating Risk Score...</div>
+          <div class="ss-step" id="sstep-5"><i class="fas fa-circle"></i> Generating AI Explanation...</div>
+        </div>
+      </div>
+
+      <!-- RESULT -->
+      <div class="scanner-result glass-card" id="scan-result" style="display:none">
+        <div class="sr-top">
+          <div class="sr-case" id="sr-case">Case: AML-DEMO-0001</div>
+          <div class="sr-time" id="sr-time"></div>
+        </div>
+        <div class="sr-score-row">
+          <div class="sr-circle-wrap"><canvas id="score-canvas" width="180" height="180"></canvas>
+            <div class="sr-circle-center"><span id="score-num" class="sn">0</span><span class="sl">/100</span></div>
+          </div>
+          <div class="sr-details">
+            <div class="sr-level" id="sr-level"><i class="fas fa-circle-xmark"></i> <span id="level-text">HIGH RISK</span></div>
+            <div class="sr-row"><span class="sr-lbl">Pattern:</span><span class="sr-val" id="pattern-text">—</span></div>
+            <div class="sr-row"><span class="sr-lbl">Confidence:</span><span class="sr-val" id="confidence-text">—</span></div>
+            <div class="sr-row"><span class="sr-lbl">Alerts:</span><span class="sr-val" id="alert-count">—</span></div>
+          </div>
+        </div>
+        <div class="sr-ai glass-inner">
+          <div class="sr-ai-title"><i class="fas fa-brain"></i> AI Reasoning</div>
+          <p id="ai-reason-text"></p>
+        </div>
+        <div class="sr-action glass-inner" id="sr-action">
+          <div class="sr-action-title"><i class="fas fa-shield-halved"></i> Suggested Action</div>
+          <p id="action-text"></p>
+        </div>
+        <div class="sr-factors">
+          <div class="sr-factors-title">Risk Factors Detected</div>
+          <div id="rf-list" class="rf-list"></div>
+        </div>
+        <div class="sr-btns">
+          <button class="btn-secondary ripple" onclick="downloadReportNotif()"><i class="fas fa-download"></i> Download Report</button>
+          <button class="btn-primary ripple" onclick="resetScanner()"><i class="fas fa-rotate-left"></i> New Scan</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ DASHBOARD ░░ -->
+<section id="dashboard" class="section section-dark">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag"><i class="fas fa-gauge-high"></i> Live Dashboard</span>
+      <h2>AML <span class="gradient-text">Intelligence Dashboard</span></h2>
+      <p>Real-time metrics, risk distribution analysis, and live alert streams across your financial network.</p>
+    </div>
+    <div class="dashboard-stats">
+      <div class="dash-stat glass-card"><div class="ds-icon ds-blue"><i class="fas fa-database"></i></div><div class="ds-body"><div class="ds-num" data-target="248349">0</div><div class="ds-lbl">Transactions Scanned</div></div><div class="ds-trend up">+12.4%</div></div>
+      <div class="dash-stat glass-card"><div class="ds-icon ds-red"><i class="fas fa-triangle-exclamation"></i></div><div class="ds-body"><div class="ds-num" data-target="1247">0</div><div class="ds-lbl">High Risk Alerts</div></div><div class="ds-trend alert">+8.7%</div></div>
+      <div class="dash-stat glass-card"><div class="ds-icon ds-yellow"><i class="fas fa-circle-exclamation"></i></div><div class="ds-body"><div class="ds-num" data-target="3891">0</div><div class="ds-lbl">Medium Risk Alerts</div></div><div class="ds-trend down">-3.2%</div></div>
+      <div class="dash-stat glass-card"><div class="ds-icon ds-green"><i class="fas fa-circle-check"></i></div><div class="ds-body"><div class="ds-num" data-target="243211">0</div><div class="ds-lbl">Low Risk Transactions</div></div><div class="ds-trend up">+15.1%</div></div>
+      <div class="dash-stat glass-card"><div class="ds-icon ds-red"><i class="fas fa-user-xmark"></i></div><div class="ds-body"><div class="ds-num" data-target="342">0</div><div class="ds-lbl">Suspicious Accounts</div></div><div class="ds-trend alert">+21.3%</div></div>
+      <div class="dash-stat glass-card"><div class="ds-icon ds-orange"><i class="fas fa-bitcoin-sign"></i></div><div class="ds-body"><div class="ds-num" data-target="189">0</div><div class="ds-lbl">Crypto Wallet Alerts</div></div><div class="ds-trend alert">+34.6%</div></div>
+    </div>
+    <div class="dashboard-charts">
+      <div class="chart-card glass-card"><div class="chart-hdr"><h3><i class="fas fa-chart-bar"></i> Risk Score Distribution</h3><span>Last 30 Days</span></div><div style="height:260px"><canvas id="riskChart"></canvas></div></div>
+      <div class="chart-card glass-card"><div class="chart-hdr"><h3><i class="fas fa-chart-line"></i> Volume &amp; Risk Trend</h3><span>Last 14 Days</span></div><div style="height:260px"><canvas id="trendChart"></canvas></div></div>
+      <div class="chart-card glass-card"><div class="chart-hdr"><h3><i class="fas fa-chart-pie"></i> Alert Breakdown</h3><span>This Month</span></div><div style="height:260px"><canvas id="pieChart"></canvas></div></div>
+    </div>
+    <div class="alerts-table-card glass-card">
+      <div class="at-header">
+        <h3><i class="fas fa-bell"></i> Recent AML Alerts</h3>
+        <div class="at-controls">
+          <input type="text" placeholder="Search alerts..." id="alert-search" oninput="filterAlerts(this.value)"/>
+          <span id="table-count">Showing 8 of 8</span>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table class="alerts-table"><thead><tr><th>Alert ID</th><th>Account</th><th>Amount</th><th>Pattern</th><th>Risk Score</th><th>Status</th><th>Action</th></tr></thead>
+        <tbody id="alerts-tbody">
+          <tr><td><span class="alert-id">AML-001</span></td><td><span class="acc-chip">ACC-4782</span></td><td>₹8,50,000</td><td><span class="pt pt-red">Circular Transfer</span></td><td><span class="rs rs-high">91</span></td><td><span class="sb sb-high">High Risk</span></td><td><button class="btn-mini ripple" onclick="viewAlertDetail('AML-001')">Review</button></td></tr>
+          <tr><td><span class="alert-id">AML-002</span></td><td><span class="acc-chip">WALLET-89X</span></td><td>₹12,00,000</td><td><span class="pt pt-red">Crypto Layering</span></td><td><span class="rs rs-high">88</span></td><td><span class="sb sb-high">High Risk</span></td><td><button class="btn-mini ripple" onclick="viewAlertDetail('AML-002')">Review</button></td></tr>
+          <tr><td><span class="alert-id">AML-003</span></td><td><span class="acc-chip">ACC-2201</span></td><td>₹2,40,000</td><td><span class="pt pt-yellow">Rapid Split</span></td><td><span class="rs rs-med">74</span></td><td><span class="sb sb-med">Medium Risk</span></td><td><button class="btn-mini ripple" onclick="viewAlertDetail('AML-003')">Review</button></td></tr>
+          <tr><td><span class="alert-id">AML-004</span></td><td><span class="acc-chip">ACC-6653</span></td><td>₹45,00,000</td><td><span class="pt pt-red">Wire Layering</span></td><td><span class="rs rs-high">95</span></td><td><span class="sb sb-high">High Risk</span></td><td><button class="btn-mini ripple" onclick="viewAlertDetail('AML-004')">Review</button></td></tr>
+          <tr><td><span class="alert-id">AML-005</span></td><td><span class="acc-chip">BIZ-0019</span></td><td>₹98,000</td><td><span class="pt pt-yellow">Smurfing</span></td><td><span class="rs rs-med">67</span></td><td><span class="sb sb-med">Medium Risk</span></td><td><button class="btn-mini ripple" onclick="viewAlertDetail('AML-005')">Review</button></td></tr>
+          <tr><td><span class="alert-id">AML-006</span></td><td><span class="acc-chip">WALLET-C3X</span></td><td>₹3,75,000</td><td><span class="pt pt-red">Mixer Activity</span></td><td><span class="rs rs-high">82</span></td><td><span class="sb sb-high">High Risk</span></td><td><button class="btn-mini ripple" onclick="viewAlertDetail('AML-006')">Review</button></td></tr>
+          <tr><td><span class="alert-id">AML-007</span></td><td><span class="acc-chip">ACC-1147</span></td><td>₹1,20,000</td><td><span class="pt pt-green">Normal Activity</span></td><td><span class="rs rs-low">22</span></td><td><span class="sb sb-low">Low Risk</span></td><td><button class="btn-mini ripple" onclick="viewAlertDetail('AML-007')">Review</button></td></tr>
+          <tr><td><span class="alert-id">AML-008</span></td><td><span class="acc-chip">ACC-8832</span></td><td>₹5,60,000</td><td><span class="pt pt-red">Mule Account</span></td><td><span class="rs rs-high">79</span></td><td><span class="sb sb-high">High Risk</span></td><td><button class="btn-mini ripple" onclick="viewAlertDetail('AML-008')">Review</button></td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+<!-- ░░  NEW v3: AI NEURAL NETWORK LIVE VISUALIZER  ░░ -->
+<!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+<section id="neural-viz" class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag nv-tag"><i class="fas fa-brain"></i> ✨ New — v3.5</span>
+      <h2>AI Neural Network <span class="gradient-text">Live Visualizer</span></h2>
+      <p>Watch the AI brain process every transaction in real-time. See which neural layers activate, which patterns fire, and how confidence builds as data flows through 6 decision layers.</p>
+    </div>
+    <div class="nv-layout">
+      <!-- Canvas visualization -->
+      <div class="nv-canvas-wrap glass-card">
+        <div class="nv-header">
+          <div class="nv-live-ind"><span class="nv-pulse"></span> Neural Engine Processing</div>
+          <div class="nv-controls">
+            <button class="nv-btn active" id="nv-pause-btn" onclick="toggleNeuralViz()"><i class="fas fa-pause"></i> Pause</button>
+            <button class="nv-btn" onclick="injectHighRiskSignal()"><i class="fas fa-bolt"></i> Inject High-Risk Signal</button>
+          </div>
+        </div>
+        <canvas id="neural-canvas"></canvas>
+        <div class="nv-layer-labels" id="nv-layer-labels">
+          <span>Input Layer</span><span>Graph GNN</span><span>Behavioral</span><span>Pattern Match</span><span>Risk Score</span><span>Output</span>
+        </div>
+      </div>
+      <!-- Sidebar -->
+      <div class="nv-sidebar">
+        <div class="nv-stat-card glass-card">
+          <div class="nv-stat-title"><i class="fas fa-microchip"></i> Processing Stats</div>
+          <div class="nv-stats-grid">
+            <div class="nv-stat"><span class="nv-num" id="nv-txps">0</span><span class="nv-lbl">Tx / sec</span></div>
+            <div class="nv-stat"><span class="nv-num" id="nv-nodes">312</span><span class="nv-lbl">Active Nodes</span></div>
+            <div class="nv-stat"><span class="nv-num" id="nv-accuracy">98.7%</span><span class="nv-lbl">Accuracy</span></div>
+            <div class="nv-stat"><span class="nv-num" id="nv-latency">1.2ms</span><span class="nv-lbl">Latency</span></div>
+          </div>
+        </div>
+        <div class="nv-layer-card glass-card">
+          <div class="nv-stat-title"><i class="fas fa-layer-group"></i> Layer Activations</div>
+          <div id="nv-activation-bars" class="nv-activation-bars"></div>
+        </div>
+        <div class="nv-decision-card glass-card">
+          <div class="nv-stat-title"><i class="fas fa-lightbulb"></i> Live Decision Feed</div>
+          <div id="nv-decisions" class="nv-decisions"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+<!-- ░░  NEW v3: BEHAVIORAL BIOMETRICS TIMELINE  ░░ -->
+<!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+<section id="behavior" class="section section-dark">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag bt-tag"><i class="fas fa-fingerprint"></i> ✨ New — v3.5</span>
+      <h2>Behavioral Biometrics <span class="gradient-text">Transaction Timeline</span></h2>
+      <p>AI-powered account behavior profiling. Track spending patterns, detect anomalies over time, and identify the exact moment an account turns suspicious.</p>
+    </div>
+    <div class="bt-layout">
+      <!-- Account selector -->
+      <div class="bt-controls glass-card">
+        <div class="bt-ctrl-header"><i class="fas fa-user-circle"></i> Select Account to Analyze</div>
+        <div class="bt-accounts" id="bt-accounts">
+          <button class="bt-acc-btn active" onclick="selectBehaviorAccount('ACC-4782',this)">ACC-4782 <span class="bt-risk-dot bt-high"></span></button>
+          <button class="bt-acc-btn" onclick="selectBehaviorAccount('WALLET-89X',this)">WALLET-89X <span class="bt-risk-dot bt-high"></span></button>
+          <button class="bt-acc-btn" onclick="selectBehaviorAccount('ACC-2201',this)">ACC-2201 <span class="bt-risk-dot bt-med"></span></button>
+          <button class="bt-acc-btn" onclick="selectBehaviorAccount('BIZ-0019',this)">BIZ-0019 <span class="bt-risk-dot bt-med"></span></button>
+          <button class="bt-acc-btn" onclick="selectBehaviorAccount('ACC-1147',this)">ACC-1147 <span class="bt-risk-dot bt-low"></span></button>
+        </div>
+        <div class="bt-account-info" id="bt-account-info">
+          <div class="bt-ai-row"><span class="bt-ai-label">Account ID</span><span class="bt-ai-val" id="bt-ai-id">ACC-4782</span></div>
+          <div class="bt-ai-row"><span class="bt-ai-label">Risk Level</span><span class="bt-ai-val" id="bt-ai-risk" style="color:#ff3250">HIGH RISK</span></div>
+          <div class="bt-ai-row"><span class="bt-ai-label">Behavior Type</span><span class="bt-ai-val" id="bt-ai-type">Circular Transfer</span></div>
+          <div class="bt-ai-row"><span class="bt-ai-label">Anomaly Score</span><span class="bt-ai-val" id="bt-ai-score">91 / 100</span></div>
+          <div class="bt-ai-row"><span class="bt-ai-label">Events Detected</span><span class="bt-ai-val" id="bt-ai-events">7 anomalies</span></div>
+        </div>
+      </div>
+      <!-- Timeline canvas -->
+      <div class="bt-chart-wrap glass-card">
+        <div class="bt-chart-header">
+          <h4 id="bt-chart-title">ACC-4782 — Behavioral Transaction Timeline (30 Days)</h4>
+          <div class="bt-legend">
+            <span><span class="btl-dot btl-normal"></span> Normal</span>
+            <span><span class="btl-dot btl-anomaly"></span> Anomaly</span>
+            <span><span class="btl-dot btl-spike"></span> High Risk Event</span>
+          </div>
+        </div>
+        <canvas id="behavior-canvas"></canvas>
+        <div class="bt-events-list" id="bt-events-list"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ LIVE TRANSACTION FEED ░░ -->
+<section id="live-feed" class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag"><i class="fas fa-bolt"></i> Feature</span>
+      <h2>Live <span class="gradient-text">Transaction Feed</span></h2>
+      <p>Real-time stream of transactions being processed and scored by the AI engine. Watch suspicious patterns emerge as they happen.</p>
+    </div>
+    <div class="live-feed-layout">
+      <div class="lf-main glass-card">
+        <div class="lf-header">
+          <div class="lf-title"><span class="lf-dot"></span> Live Transaction Stream</div>
+          <div class="lf-controls">
+            <button class="lf-btn active" id="lf-pause" onclick="toggleFeed(this)"><i class="fas fa-pause"></i> Pause</button>
+            <button class="lf-btn" onclick="clearFeed()"><i class="fas fa-trash"></i> Clear</button>
+            <select id="lf-filter" onchange="setFeedFilter(this.value)">
+              <option value="all">All Transactions</option>
+              <option value="high">High Risk Only</option>
+              <option value="medium">Medium Risk Only</option>
+              <option value="crypto">Crypto Only</option>
+            </select>
+          </div>
+        </div>
+        <div class="lf-stream" id="lf-stream">
+          <div class="lf-empty"><i class="fas fa-radar"></i><span>Waiting for transactions...</span></div>
+        </div>
+      </div>
+      <div class="lf-sidebar">
+        <div class="lfs-card glass-card">
+          <div class="lfs-title"><i class="fas fa-chart-column"></i> Stream Stats</div>
+          <div class="lfs-stats">
+            <div class="lfs-stat"><span class="lfs-num" id="feed-total">0</span><span class="lfs-lbl">Total Processed</span></div>
+            <div class="lfs-stat"><span class="lfs-num red" id="feed-high">0</span><span class="lfs-lbl">High Risk</span></div>
+            <div class="lfs-stat"><span class="lfs-num yellow" id="feed-med">0</span><span class="lfs-lbl">Medium Risk</span></div>
+            <div class="lfs-stat"><span class="lfs-num green" id="feed-low">0</span><span class="lfs-lbl">Low Risk</span></div>
+          </div>
+        </div>
+        <div class="lfs-card glass-card">
+          <div class="lfs-title"><i class="fas fa-triangle-exclamation"></i> Top Patterns</div>
+          <div id="pattern-counts" class="pattern-counts"></div>
+        </div>
+        <div class="lfs-card glass-card lfs-sparkline-card">
+          <div class="lfs-title"><i class="fas fa-chart-line"></i> Risk Rate</div>
+          <canvas id="sparkline-canvas" width="240" height="70"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ GLOBAL THREAT MAP ░░ -->
+<section id="threat-map" class="section section-dark">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag"><i class="fas fa-globe"></i> Feature</span>
+      <h2>Global <span class="gradient-text">Threat Intelligence Map</span></h2>
+      <p>Real-time visualization of AML threat flows across 180+ countries. Click any hotspot to see risk details and active alerts.</p>
+    </div>
+    <div class="threat-map-layout">
+      <div class="tm-map-wrap glass-card">
+        <div class="tm-map-header">
+          <div class="tm-live"><span></span> Live Threat Data</div>
+          <div class="tm-legend">
+            <span class="tml-item"><span class="tml-dot tml-red"></span> Critical</span>
+            <span class="tml-item"><span class="tml-dot tml-orange"></span> High</span>
+            <span class="tml-item"><span class="tml-dot tml-yellow"></span> Medium</span>
+            <span class="tml-item"><span class="tml-dot tml-green"></span> Low</span>
+          </div>
+        </div>
+        <canvas id="world-map-canvas"></canvas>
+        <div class="tm-tooltip" id="tm-tooltip" style="display:none"></div>
+      </div>
+      <div class="tm-sidebar">
+        <div class="tms-card glass-card">
+          <h4><i class="fas fa-ranking-star"></i> High-Risk Countries</h4>
+          <div class="risk-country-list" id="risk-country-list"></div>
+        </div>
+        <div class="tms-card glass-card">
+          <h4><i class="fas fa-route"></i> Active Money Flow Routes</h4>
+          <div class="route-list" id="route-list"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ AI REASONING ░░ -->
+<section id="ai-reasoning" class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag"><i class="fas fa-brain"></i> Explainable AI</span>
+      <h2>Understand Why a Transaction <span class="gradient-text">Is Suspicious</span></h2>
+      <p>AML Shield AI doesn't just flag — it explains every decision in natural language your compliance team can immediately act on.</p>
+    </div>
+    <div class="reasoning-grid">
+      <div class="reasoning-card glass-card" data-tilt><div class="rc-hdr"><div class="rci rci-red"><i class="fas fa-link"></i></div><div class="rcm"><span class="rc-id">CASE-2847</span><span class="rc-score score-h">91/100</span></div></div><div class="rc-ai-lbl"><i class="fas fa-brain"></i> AI Analysis</div><p class="rc-text">"Funds were transferred through <strong>7 accounts in under 24 hours</strong>, showing classic layering chain pattern. Identical amounts used to avoid threshold detection."</p><div class="rc-tags"><span>Multi-hop</span><span>Velocity</span><span>Threshold Avoidance</span></div></div>
+      <div class="reasoning-card glass-card" data-tilt><div class="rc-hdr"><div class="rci rci-orange"><i class="fas fa-scissors"></i></div><div class="rcm"><span class="rc-id">CASE-3192</span><span class="rc-score score-m">78/100</span></div></div><div class="rc-ai-lbl"><i class="fas fa-brain"></i> AI Analysis</div><p class="rc-text">"Transaction amounts <strong>systematically split to ₹49,000 each</strong> — below the ₹50,000 reporting threshold. Classic structuring/smurfing evasion behavior."</p><div class="rc-tags"><span>Structuring</span><span>Smurfing</span><span>Threshold Evasion</span></div></div>
+      <div class="reasoning-card glass-card" data-tilt><div class="rc-hdr"><div class="rci rci-red"><i class="fas fa-arrows-spin"></i></div><div class="rcm"><span class="rc-id">CASE-4071</span><span class="rc-score score-h">87/100</span></div></div><div class="rc-ai-lbl"><i class="fas fa-brain"></i> AI Analysis</div><p class="rc-text">"Money <strong>returned to a related account</strong> after passing through 5 intermediate entities — circular transfer pattern consistent with money laundering layering."</p><div class="rc-tags"><span>Circular Flow</span><span>Related Parties</span><span>Loop Detection</span></div></div>
+      <div class="reasoning-card glass-card" data-tilt><div class="rc-hdr"><div class="rci rci-orange"><i class="fas fa-bitcoin-sign"></i></div><div class="rcm"><span class="rc-id">CASE-5803</span><span class="rc-score score-h">84/100</span></div></div><div class="rc-ai-lbl"><i class="fas fa-brain"></i> AI Analysis</div><p class="rc-text">"Crypto wallet shows <strong>rapid conversion-and-retransfer across 3 exchanges in 40 minutes</strong>. Cross-chain movement suggests deliberate trail obfuscation."</p><div class="rc-tags"><span>Crypto Mixing</span><span>Chain Hopping</span><span>Exchange Layering</span></div></div>
+    </div>
+    <div class="ai-arch-card glass-card">
+      <h3><i class="fas fa-microchip"></i> AI Architecture Pipeline</h3>
+      <div class="aap-steps">
+        <div class="aap-step"><div class="aap-icon"><i class="fas fa-database"></i></div><div class="aap-num">01</div><div class="aap-text">Transaction Graph Construction</div></div>
+        <div class="aap-arr"><i class="fas fa-arrow-right"></i></div>
+        <div class="aap-step"><div class="aap-icon"><i class="fas fa-project-diagram"></i></div><div class="aap-num">02</div><div class="aap-text">Graph Neural Network Analysis</div></div>
+        <div class="aap-arr"><i class="fas fa-arrow-right"></i></div>
+        <div class="aap-step"><div class="aap-icon"><i class="fas fa-magnifying-glass-chart"></i></div><div class="aap-num">03</div><div class="aap-text">Anomaly Detection Layer</div></div>
+        <div class="aap-arr"><i class="fas fa-arrow-right"></i></div>
+        <div class="aap-step"><div class="aap-icon"><i class="fas fa-gauge-high"></i></div><div class="aap-num">04</div><div class="aap-text">Risk Score Calculation</div></div>
+        <div class="aap-arr"><i class="fas fa-arrow-right"></i></div>
+        <div class="aap-step"><div class="aap-icon"><i class="fas fa-brain"></i></div><div class="aap-num">05</div><div class="aap-text">Language Model Explanation</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ CASE INVESTIGATION BOARD ░░ -->
+<section id="case-board" class="section section-dark">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag"><i class="fas fa-folder-open"></i> Feature</span>
+      <h2>AML Case <span class="gradient-text">Investigation Board</span></h2>
+      <p>Drag-and-drop case management for your compliance team. Move cases through the investigation pipeline from detection to resolution.</p>
+    </div>
+    <div class="board-toolbar">
+      <button class="btn-secondary ripple" onclick="addNewCase()"><i class="fas fa-plus"></i> New Case</button>
+      <div class="board-search"><i class="fas fa-search"></i><input type="text" placeholder="Search cases..." oninput="filterCases(this.value)"/></div>
+      <div class="board-stats-mini">
+        <span><i class="fas fa-circle" style="color:var(--red)"></i> <span id="bs-open">0</span> Open</span>
+        <span><i class="fas fa-circle" style="color:var(--yellow)"></i> <span id="bs-inv">0</span> Investigating</span>
+        <span><i class="fas fa-circle" style="color:var(--cyan)"></i> <span id="bs-rev">0</span> In Review</span>
+        <span><i class="fas fa-circle" style="color:var(--green)"></i> <span id="bs-closed">0</span> Closed</span>
+      </div>
+    </div>
+    <div class="case-board" id="case-board-container">
+      <div class="cb-col" data-col="open">
+        <div class="cb-col-header"><div class="cbc-dot cbc-red"></div> Open <span id="col-cnt-open" class="cb-cnt">0</span></div>
+        <div class="cb-cards" id="col-open" ondragover="event.preventDefault()" ondrop="dropCase(event,'open')"></div>
+      </div>
+      <div class="cb-col" data-col="investigating">
+        <div class="cb-col-header"><div class="cbc-dot cbc-yellow"></div> Investigating <span id="col-cnt-investigating" class="cb-cnt">0</span></div>
+        <div class="cb-cards" id="col-investigating" ondragover="event.preventDefault()" ondrop="dropCase(event,'investigating')"></div>
+      </div>
+      <div class="cb-col" data-col="review">
+        <div class="cb-col-header"><div class="cbc-dot cbc-cyan"></div> In Review <span id="col-cnt-review" class="cb-cnt">0</span></div>
+        <div class="cb-cards" id="col-review" ondragover="event.preventDefault()" ondrop="dropCase(event,'review')"></div>
+      </div>
+      <div class="cb-col" data-col="closed">
+        <div class="cb-col-header"><div class="cbc-dot cbc-green"></div> Closed <span id="col-cnt-closed" class="cb-cnt">0</span></div>
+        <div class="cb-cards" id="col-closed" ondragover="event.preventDefault()" ondrop="dropCase(event,'closed')"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ USE CASES ░░ -->
+<section id="use-cases" class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag"><i class="fas fa-users"></i> Who Uses It</span>
+      <h2>Built for Every <span class="gradient-text">Financial Institution</span></h2>
+    </div>
+    <div class="usecase-grid">
+      <div class="usecase-card glass-card" data-tilt><div class="uc-icon"><i class="fas fa-building-columns"></i></div><h3>Banks</h3><p>Monitor millions of daily transactions, flag layering patterns, auto-generate SAR reports, and ensure RBI/FATF compliance.</p><div class="uc-stat"><span>500K+</span> daily scans</div></div>
+      <div class="usecase-card glass-card" data-tilt><div class="uc-icon uc-purple"><i class="fas fa-mobile-alt"></i></div><h3>Fintech Startups</h3><p>Embed AML detection via API. Get real-time risk alerts without building an in-house compliance team from scratch.</p><div class="uc-stat"><span>&lt;50ms</span> API response</div></div>
+      <div class="usecase-card glass-card" data-tilt><div class="uc-icon uc-orange"><i class="fas fa-coins"></i></div><h3>Crypto Exchanges</h3><p>Track suspicious wallet activity, detect mixing, chain hopping, and sanction violations across all major blockchains.</p><div class="uc-stat"><span>50+</span> chains monitored</div></div>
+      <div class="usecase-card glass-card" data-tilt><div class="uc-icon uc-cyan"><i class="fas fa-credit-card"></i></div><h3>Payment Gateways</h3><p>Screen payments against AML patterns in real-time before settlement, reducing fraud exposure and regulatory risk.</p><div class="uc-stat"><span>99.9%</span> uptime SLA</div></div>
+      <div class="usecase-card glass-card" data-tilt><div class="uc-icon uc-green"><i class="fas fa-magnifying-glass-chart"></i></div><h3>Auditors</h3><p>Upload CSV data, run batch AML scans, and export comprehensive audit-ready reports for client engagements.</p><div class="uc-stat"><span>PDF</span> export ready</div></div>
+      <div class="usecase-card glass-card" data-tilt><div class="uc-icon uc-red"><i class="fas fa-shop"></i></div><h3>Small Businesses</h3><p>Monitor business account transactions for suspicious patterns without expensive enterprise compliance software.</p><div class="uc-stat"><span>₹999</span>/month starter</div></div>
+      <div class="usecase-card glass-card" data-tilt><div class="uc-icon uc-yellow"><i class="fas fa-percent"></i></div><h3>NBFCs</h3><p>Comply with RBI AML guidelines. Monitor loan transactions, repayments, and cash flow for layering indicators.</p><div class="uc-stat"><span>RBI</span> guidelines aligned</div></div>
+      <div class="usecase-card glass-card" data-tilt><div class="uc-icon uc-blue"><i class="fas fa-clipboard-check"></i></div><h3>Compliance Teams</h3><p>AI-generated SAR drafts, investigation timelines, risk matrices, and case management — all in one platform.</p><div class="uc-stat"><span>80%</span> time saved</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ WORKFLOW ░░ -->
+<section id="workflow" class="section section-dark">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag"><i class="fas fa-route"></i> How It Works</span>
+      <h2>6-Step AML <span class="gradient-text">Detection Workflow</span></h2>
+    </div>
+    <div class="workflow-timeline">
+      <div class="wf-step glass-card" data-step="1"><div class="wf-num">01</div><div class="wf-icon"><i class="fas fa-upload"></i></div><h3>Upload Data</h3><p>CSV, XLSX, or API integration. Supports bank, fintech, crypto, and payment gateway formats.</p></div>
+      <div class="wf-step glass-card" data-step="2"><div class="wf-num">02</div><div class="wf-icon"><i class="fas fa-brain"></i></div><h3>AI Analysis</h3><p>Graph neural networks map relationships, identify velocity, circularity, and structuring anomalies.</p></div>
+      <div class="wf-step glass-card" data-step="3"><div class="wf-num">03</div><div class="wf-icon"><i class="fas fa-gauge-high"></i></div><h3>Risk Score</h3><p>0–100 risk score with confidence level and contributing risk factor breakdown per transaction.</p></div>
+      <div class="wf-step glass-card" data-step="4"><div class="wf-num">04</div><div class="wf-icon"><i class="fas fa-project-diagram"></i></div><h3>Route Highlight</h3><p>Visual network graph shows exact money movement path with suspicious links highlighted in red.</p></div>
+      <div class="wf-step glass-card" data-step="5"><div class="wf-num">05</div><div class="wf-icon"><i class="fas fa-file-shield"></i></div><h3>SAR Report</h3><p>Automated SAR draft with AI reasoning, evidence chain, risk factors, and regulatory recommendations.</p></div>
+      <div class="wf-step glass-card" data-step="6"><div class="wf-num">06</div><div class="wf-icon"><i class="fas fa-users-gear"></i></div><h3>Team Action</h3><p>Compliance team receives prioritized alerts, reviews AI findings, and files reports or escalates cases.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ UPLOAD ░░ -->
+<section id="upload" class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag"><i class="fas fa-cloud-arrow-up"></i> Batch Analysis</span>
+      <h2>Upload Transaction <span class="gradient-text">Data Files</span></h2>
+      <p>Upload CSV or Excel files for instant batch AML analysis. Demo mode — no data is transmitted or stored.</p>
+    </div>
+    <div class="upload-wrapper">
+      <div class="upload-area glass-card" id="upload-area">
+        <div class="upload-icon"><i class="fas fa-cloud-arrow-up"></i></div>
+        <h3>Drag &amp; Drop Transaction File</h3>
+        <p>Supports CSV, XLSX, XLS formats up to 50MB</p>
+        <input type="file" id="file-input" accept=".csv,.xlsx,.xls" onchange="handleFileUpload(this)" style="display:none"/>
+        <button class="btn-secondary ripple" onclick="document.getElementById('file-input').click()"><i class="fas fa-folder-open"></i> Choose File</button>
+        <div class="upload-fmts"><span><i class="fas fa-file-csv"></i> CSV</span><span><i class="fas fa-file-excel"></i> XLSX</span><span><i class="fas fa-file"></i> XLS</span></div>
+        <div class="upload-note"><i class="fas fa-lock"></i> Demo only — no data transmitted or stored</div>
+      </div>
+      <div class="upload-scanning glass-card" id="upload-scanning" style="display:none">
+        <div class="usc-top"><div class="usc-icon"><i class="fas fa-radar"></i></div><div><div class="usc-fname" id="us-filename">—</div><div class="usc-size" id="us-size">—</div></div></div>
+        <div class="usc-bar"><div id="scan-progress-fill"></div></div>
+        <div class="usc-status" id="scan-status-text">Initializing...</div>
+        <div class="usc-log" id="scan-log"></div>
+      </div>
+      <div class="upload-results glass-card" id="upload-results" style="display:none">
+        <div class="ur-top"><div class="ur-check"><i class="fas fa-circle-check"></i></div><div><h3>Scan Complete!</h3><p>AI analysis finished in 2.3 seconds</p></div></div>
+        <div class="ur-stats">
+          <div class="ur-s"><span class="urs-n">1,248</span><span class="urs-l">Scanned</span></div>
+          <div class="ur-s urs-alert"><span class="urs-n">36</span><span class="urs-l">Suspicious</span></div>
+          <div class="ur-s urs-danger"><span class="urs-n">12</span><span class="urs-l">High Risk</span></div>
+          <div class="ur-s urs-crypto"><span class="urs-n">5</span><span class="urs-l">Crypto Alerts</span></div>
+          <div class="ur-s urs-warn"><span class="urs-n">3</span><span class="urs-l">Circular Patterns</span></div>
+        </div>
+        <div class="ur-acts"><button class="btn-primary ripple" onclick="downloadReportNotif()"><i class="fas fa-file-shield"></i> Generate Report</button><button class="btn-secondary ripple" onclick="resetUpload()"><i class="fas fa-rotate-left"></i> Scan Another</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ REPORT ░░ -->
+<section id="report" class="section section-dark">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag"><i class="fas fa-file-shield"></i> Compliance Reports</span>
+      <h2>AI-Generated <span class="gradient-text">SAR Report</span></h2>
+      <p>Automatically generated Suspicious Activity Reports with complete AI reasoning, evidence trails, and compliance recommendations.</p>
+    </div>
+    <div class="report-card glass-card">
+      <div class="report-topbar"><div class="rtb-logo"><i class="fas fa-shield-halved"></i> AML Shield AI — Suspicious Activity Report</div><div class="rtb-badge">CONFIDENTIAL</div></div>
+      <div class="report-body">
+        <div class="report-meta">
+          <div class="rm-item"><span class="rm-lbl">Case ID</span><span class="rm-val">SAR-2024-0847</span></div>
+          <div class="rm-item"><span class="rm-lbl">Generated</span><span class="rm-val" id="report-date"></span></div>
+          <div class="rm-item"><span class="rm-lbl">Risk Level</span><span class="rm-val rm-danger">HIGH RISK</span></div>
+          <div class="rm-item"><span class="rm-lbl">Risk Score</span><span class="rm-val rm-danger">91 / 100</span></div>
+          <div class="rm-item"><span class="rm-lbl">Pattern</span><span class="rm-val">Layering Chain + Circular Transfer</span></div>
+          <div class="rm-item"><span class="rm-lbl">Accounts</span><span class="rm-val">ACC-4782, ACC-9021, ACC-3347, ACC-5512, WALLET-89X, BIZ-0019</span></div>
+        </div>
+        <div class="report-block"><div class="rb-title"><i class="fas fa-file-lines"></i> Transaction Summary</div><p>Total of ₹47,20,000 moved across 7 accounts within a 22-hour window. Transactions initiated from ACC-4782 with near-identical amounts of ₹6,50,000–₹7,00,000 per transfer, consistent with structured layering. Final destination: WALLET-89X on Ethereum network.</p></div>
+        <div class="report-block"><div class="rb-title"><i class="fas fa-brain"></i> AI Reasoning</div><p>The pattern exhibits four key AML layering indicators: (1) High-velocity multi-hop transfers across 7 entities in &lt;24hrs, (2) Near-identical transaction amounts suggesting deliberate structuring, (3) Terminal crypto conversion breaks traditional audit trail, (4) Intermediate accounts show dormant→active→dormant pattern consistent with mule usage.</p></div>
+        <div class="report-block report-action-block"><div class="rb-title"><i class="fas fa-shield-halved"></i> Suggested Compliance Action</div><p>IMMEDIATE: Freeze ACC-4782 and WALLET-89X pending investigation. File SAR with FIU-IND within 7 days. Escalate to senior compliance officer. Consider blocking intermediate accounts for 48-hour review.</p></div>
+      </div>
+      <div class="report-actions"><button class="btn-primary ripple" onclick="downloadReportNotif()"><i class="fas fa-download"></i> Download Report</button><button class="btn-secondary ripple" onclick="downloadReportNotif()"><i class="fas fa-file-pdf"></i> Export PDF</button><button class="btn-secondary ripple" onclick="shareNotif()"><i class="fas fa-share-nodes"></i> Share with Team</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ PRICING ░░ -->
+<section id="pricing" class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag"><i class="fas fa-tags"></i> Pricing Plans</span>
+      <h2>Choose Your <span class="gradient-text">AML Shield Plan</span></h2>
+      <p>Transparent pricing for every organization size. 14-day free trial. No credit card required.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card glass-card" data-tilt>
+        <div class="pc-tier tier-blue">Starter</div>
+        <div class="pc-price">₹999<span>/month</span></div>
+        <div class="pc-sub">Small businesses &amp; students</div>
+        <ul class="pc-list"><li class="y"><i class="fas fa-check"></i> 1,000 scans/month</li><li class="y"><i class="fas fa-check"></i> Basic risk scoring</li><li class="y"><i class="fas fa-check"></i> Manual data input</li><li class="y"><i class="fas fa-check"></i> Pattern detection (3 types)</li><li class="n"><i class="fas fa-times"></i> CSV upload</li><li class="n"><i class="fas fa-times"></i> AI reasoning engine</li><li class="n"><i class="fas fa-times"></i> Neural Visualizer</li></ul>
+        <button class="btn-plan ripple" onclick="planNotif('Starter')">Get Started</button>
+      </div>
+      <div class="pricing-card glass-card pc-pop" data-tilt>
+        <div class="pc-pop-badge">Most Popular</div>
+        <div class="pc-tier tier-cyan">Professional</div>
+        <div class="pc-price">₹4,999<span>/month</span></div>
+        <div class="pc-sub">Fintech companies &amp; auditors</div>
+        <ul class="pc-list"><li class="y"><i class="fas fa-check"></i> 50,000 scans/month</li><li class="y"><i class="fas fa-check"></i> AI reasoning engine (XAI)</li><li class="y"><i class="fas fa-check"></i> CSV/XLSX file upload</li><li class="y"><i class="fas fa-check"></i> Full dashboard access</li><li class="y"><i class="fas fa-check"></i> Neural Network Visualizer</li><li class="y"><i class="fas fa-check"></i> Behavioral Timeline Analysis</li><li class="y"><i class="fas fa-check"></i> Risk Heatmap Analytics</li><li class="y"><i class="fas fa-check"></i> Entity Graph Explorer</li><li class="y"><i class="fas fa-check"></i> AI Compliance Copilot</li></ul>
+        <button class="btn-plan btn-plan-primary ripple" onclick="planNotif('Professional')">Start Free Trial</button>
+      </div>
+      <div class="pricing-card glass-card" data-tilt>
+        <div class="pc-tier tier-purple">Enterprise</div>
+        <div class="pc-price">Custom<span> Pricing</span></div>
+        <div class="pc-sub">Banks &amp; crypto platforms</div>
+        <ul class="pc-list"><li class="y"><i class="fas fa-check"></i> Unlimited scans</li><li class="y"><i class="fas fa-check"></i> Full API integration</li><li class="y"><i class="fas fa-check"></i> Advanced reporting suite</li><li class="y"><i class="fas fa-check"></i> Dedicated compliance support</li><li class="y"><i class="fas fa-check"></i> On-premise deployment</li><li class="y"><i class="fas fa-check"></i> White-label solution</li><li class="y"><i class="fas fa-check"></i> Custom AI model training</li></ul>
+        <button class="btn-plan ripple" onclick="planNotif('Enterprise')">Contact Sales</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ FAQ ░░ -->
+<section id="faq" class="section section-dark">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag"><i class="fas fa-circle-question"></i> FAQ</span>
+      <h2>Frequently Asked <span class="gradient-text">Questions</span></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item glass-card" onclick="toggleFAQ(this)"><div class="faq-q"><span>What is AML layering?</span><i class="fas fa-plus faq-ico"></i></div><div class="faq-a">AML layering is the second stage of money laundering where criminals move illegal funds through complex chains of transactions — multiple bank accounts, shell companies, crypto wallets — to obscure the original source and frustrate investigators.</div></div>
+      <div class="faq-item glass-card" onclick="toggleFAQ(this)"><div class="faq-q"><span>Can this platform detect real money laundering?</span><i class="fas fa-plus faq-ico"></i></div><div class="faq-a">AML Shield AI is an AI-assisted risk analysis platform that identifies patterns statistically associated with money laundering. It helps compliance teams prioritize investigations. A human compliance expert must make the final legal determination.</div></div>
+      <div class="faq-item glass-card" onclick="toggleFAQ(this)"><div class="faq-q"><span>Is this a certified legal compliance tool?</span><i class="fas fa-plus faq-ico"></i></div><div class="faq-a">No. This platform provides AI-assisted risk analysis and does not replace certified AML compliance or legal review. Always consult certified AML officers and legal counsel for regulatory filings and legal decisions.</div></div>
+      <div class="faq-item glass-card" onclick="toggleFAQ(this)"><div class="faq-q"><span>What does the Neural Network Visualizer show?</span><i class="fas fa-plus faq-ico"></i></div><div class="faq-a">The Neural Network Visualizer shows a real-time animated representation of the AI processing pipeline — from input transaction data through 6 neural layers including Graph GNN, Behavioral Analysis, Pattern Matching, Risk Scoring, and final Output. It demonstrates how confidence builds as data flows through each decision layer.</div></div>
+      <div class="faq-item glass-card" onclick="toggleFAQ(this)"><div class="faq-q"><span>What is the Behavioral Biometrics Timeline?</span><i class="fas fa-plus faq-ico"></i></div><div class="faq-a">The Behavioral Timeline profiles each account's transaction behavior over 30 days. It identifies anomaly spikes, dormant-to-active patterns, velocity changes, and high-risk events. You can select any account and see exactly when and how suspicious behavior emerged.</div></div>
+      <div class="faq-item glass-card" onclick="toggleFAQ(this)"><div class="faq-q"><span>Can it detect suspicious crypto transactions?</span><i class="fas fa-plus faq-ico"></i></div><div class="faq-a">Yes. Dedicated crypto monitoring covers 50+ blockchains. Detects mixing, tumbling, chain-hopping, rapid exchange transfers, sanctioned wallet addresses, and DeFi-based layering strategies.</div></div>
+      <div class="faq-item glass-card" onclick="toggleFAQ(this)"><div class="faq-q"><span>Does it generate AML compliance reports?</span><i class="fas fa-plus faq-ico"></i></div><div class="faq-a">Yes. Auto-generates detailed SARs including case ID, risk level, suspicious pattern analysis, AI reasoning, accounts involved, transaction summary, and recommended compliance actions. Exportable as PDF.</div></div>
+      <div class="faq-item glass-card" onclick="toggleFAQ(this)"><div class="faq-q"><span>What is the Risk Heatmap Analytics feature?</span><i class="fas fa-plus faq-ico"></i></div><div class="faq-a">The Risk Heatmap shows suspicious transaction intensity across a 7-day × 24-hour grid, revealing exactly which time windows carry the highest AML risk. Switch between Risk Score, Transaction Volume, and Alert Count views. Hover any cell for detailed stats, click to view alerts from that window. AI generates actionable insights about peak risk periods.</div></div>
+      <div class="faq-item glass-card" onclick="toggleFAQ(this)"><div class="faq-q"><span>What is the Entity Relationship Graph Explorer?</span><i class="fas fa-plus faq-ico"></i></div><div class="faq-a">The Entity Graph is an interactive force-directed network visualization showing all accounts, crypto wallets, and shell companies with their money flow connections. Drag nodes to rearrange, click to inspect risk details, add new nodes, and flag suspicious entities. Red edges show high-risk money flows, animated packets show real-time transaction directions.</div></div>
+      <div class="faq-item glass-card" onclick="toggleFAQ(this)"><div class="faq-q"><span>What is the AI Compliance Copilot?</span><i class="fas fa-plus faq-ico"></i></div><div class="faq-a">The AI Compliance Copilot is an intelligent chat assistant trained on AML regulations, FATF guidelines, RBI compliance rules, and financial crime patterns. Ask it anything — from "what is smurfing?" to "how does the risk score work?" or "what triggers a SAR filing?" Click the purple robot icon at the bottom-left to open it anytime.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ CONTACT ░░ -->
+<section id="contact" class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag"><i class="fas fa-envelope"></i> Get In Touch</span>
+      <h2>Request a <span class="gradient-text">Demo or Contact Us</span></h2>
+    </div>
+    <div class="contact-layout">
+      <div class="contact-info">
+        <div class="ci-card glass-card"><div class="ci-ico"><i class="fas fa-envelope"></i></div><div><div class="ci-lbl">Email</div><div class="ci-val">support@amlshield.ai</div></div></div>
+        <div class="ci-card glass-card"><div class="ci-ico ci-g"><i class="fas fa-phone"></i></div><div><div class="ci-lbl">Phone</div><div class="ci-val">+91-98765-43210</div></div></div>
+        <div class="ci-card glass-card"><div class="ci-ico ci-p"><i class="fas fa-location-dot"></i></div><div><div class="ci-lbl">Location</div><div class="ci-val">Mumbai, India</div></div></div>
+        <div class="ci-card glass-card"><div class="ci-ico ci-o"><i class="fas fa-clock"></i></div><div><div class="ci-lbl">Response Time</div><div class="ci-val">Within 4 business hours</div></div></div>
+      </div>
+      <form class="contact-form glass-card" onsubmit="submitContact(event)">
+        <h3>Request Demo Access</h3>
+        <div class="cf-grid">
+          <div class="form-group"><label>Full Name *</label><input type="text" placeholder="John Smith" required/></div>
+          <div class="form-group"><label>Company *</label><input type="text" placeholder="HDFC Bank / Coinbase" required/></div>
+          <div class="form-group"><label>Email *</label><input type="email" placeholder="john@company.com" required/></div>
+          <div class="form-group"><label>Phone</label><input type="tel" placeholder="+91-XXXXX XXXXX"/></div>
+          <div class="form-group cf-full"><label>Industry *</label><select required><option value="">Select Industry</option><option>Banking</option><option>Fintech Startup</option><option>Crypto Exchange</option><option>Payment Gateway</option><option>NBFC</option><option>Auditing / Consulting</option><option>Small Business</option><option>Government / Regulator</option></select></div>
+          <div class="form-group cf-full"><label>Message</label><textarea placeholder="Tell us about your AML compliance needs..." rows="4"></textarea></div>
+        </div>
+        <button type="submit" class="btn-primary btn-full ripple"><i class="fas fa-paper-plane"></i> Request Demo</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ FOOTER ░░ -->
+<footer id="footer">
+  <div class="footer-top">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo"><i class="fas fa-shield-halved"></i> AML Shield <em>AI</em></div>
+        <p>Next-generation AI-powered AML detection platform with Neural Network Visualization, Behavioral Biometrics, Risk Heatmap Analytics, Entity Graph Explorer, and AI Compliance Copilot for banks, fintech, crypto exchanges, and compliance teams worldwide.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Platform</h4><ul><li><a href="#features">Features</a></li><li><a href="#scanner">AML Scanner</a></li><li><a href="#dashboard">Dashboard</a></li><li><a href="#neural-viz">Neural Visualizer</a></li><li><a href="#behavior">Behavioral Analysis</a></li><li><a href="#threat-map">Threat Map</a></li><li><a href="#case-board">Case Board</a></li><li><a href="#heatmap">Risk Heatmap</a></li><li><a href="#entity-graph">Entity Graph</a></li><li><a href="#pricing">Pricing</a></li></ul></div>
+      <div class="footer-col"><h4>Use Cases</h4><ul><li><a href="#use-cases">Banks</a></li><li><a href="#use-cases">Fintech</a></li><li><a href="#use-cases">Crypto Exchanges</a></li><li><a href="#use-cases">Auditors</a></li><li><a href="#use-cases">NBFCs</a></li></ul></div>
+      <div class="footer-col"><h4>Company</h4><ul><li><a href="#contact">Contact Us</a></li><li><a href="#faq">FAQ</a></li><li><a href="#workflow">How It Works</a></li><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Service</a></li></ul></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="fb-disclaimer"><i class="fas fa-info-circle"></i><strong> Disclaimer:</strong> This platform provides AI-assisted risk analysis and does not replace certified AML compliance or legal review. Always consult qualified compliance professionals and legal counsel for regulatory filings.</div>
+      <div class="fb-copy">© 2025 AML Shield AI. All rights reserved. | Demo Platform — Not for Production Use</div>
+    </div>
+  </div>
+</footer>
+
+<!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+<!-- ░░  NEW v4: AML HEATMAP ANALYTICS  ░░ -->
+<!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+<section id="heatmap" class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag hm-tag"><i class="fas fa-fire"></i> ✨ New — v4.0</span>
+      <h2>AML Transaction <span class="gradient-text">Risk Heatmap</span></h2>
+      <p>Discover which hours and days produce the highest concentration of suspicious transactions. Drill into any cell to see live alerts from that time window.</p>
+    </div>
+    <div class="heatmap-layout">
+      <!-- Heatmap Grid -->
+      <div class="hmap-main glass-card">
+        <div class="hmap-header">
+          <div class="hmap-live"><span></span> Live Risk Intensity</div>
+          <div class="hmap-controls">
+            <select id="hmap-metric" onchange="updateHeatmap(this.value)">
+              <option value="risk">Risk Score</option>
+              <option value="volume">Transaction Volume</option>
+              <option value="alerts">Alert Count</option>
+            </select>
+            <button class="hmap-btn active" id="hmap-refresh-btn" onclick="refreshHeatmap()"><i class="fas fa-rotate"></i> Refresh</button>
+          </div>
+        </div>
+        <div class="hmap-grid-wrap">
+          <div class="hmap-y-labels" id="hmap-y-labels"></div>
+          <div class="hmap-grid-area">
+            <div class="hmap-x-labels" id="hmap-x-labels"></div>
+            <div class="hmap-grid" id="hmap-grid"></div>
+          </div>
+        </div>
+        <div class="hmap-legend">
+          <span class="hmap-leg-label">Low Risk</span>
+          <div class="hmap-leg-scale"></div>
+          <span class="hmap-leg-label">Critical</span>
+        </div>
+        <div class="hmap-tooltip" id="hmap-tooltip" style="display:none;"></div>
+      </div>
+      <!-- Heatmap Sidebar -->
+      <div class="hmap-sidebar">
+        <div class="hms-card glass-card">
+          <div class="hms-title"><i class="fas fa-bolt"></i> Peak Risk Windows</div>
+          <div id="hmap-peaks" class="hmap-peaks"></div>
+        </div>
+        <div class="hms-card glass-card">
+          <div class="hms-title"><i class="fas fa-chart-column"></i> Day Summary</div>
+          <div id="hmap-day-summary" class="hmap-day-summary"></div>
+        </div>
+        <div class="hms-card glass-card">
+          <div class="hms-title"><i class="fas fa-lightbulb"></i> AI Insight</div>
+          <div id="hmap-insight" class="hmap-insight"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+<!-- ░░  NEW v4: ENTITY RELATIONSHIP GRAPH EXPLORER  ░░ -->
+<!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+<section id="entity-graph" class="section section-dark">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag eg-tag"><i class="fas fa-diagram-project"></i> ✨ New — v4.0</span>
+      <h2>Entity Relationship <span class="gradient-text">Graph Explorer</span></h2>
+      <p>Interactively explore hidden connections between accounts, wallets, shell companies, and financial entities. Drag nodes, zoom, and uncover the full money laundering network.</p>
+    </div>
+    <div class="eg-layout">
+      <!-- Graph Canvas -->
+      <div class="eg-canvas-wrap glass-card">
+        <div class="eg-header">
+          <div class="eg-live"><span class="eg-pulse"></span> Network Analysis Active</div>
+          <div class="eg-controls">
+            <button class="eg-btn" onclick="egAddRandomNode()"><i class="fas fa-plus"></i> Add Node</button>
+            <button class="eg-btn" onclick="egResetLayout()"><i class="fas fa-arrows-to-circle"></i> Reset Layout</button>
+            <button class="eg-btn" onclick="egHighlightSuspicious()"><i class="fas fa-triangle-exclamation"></i> Flag Suspicious</button>
+          </div>
+        </div>
+        <canvas id="entity-canvas"></canvas>
+        <div class="eg-legend">
+          <span><span class="eg-leg-dot" style="background:#ff3250"></span> High Risk Account</span>
+          <span><span class="eg-leg-dot" style="background:#f5c518"></span> Medium Risk</span>
+          <span><span class="eg-leg-dot" style="background:#00e87c"></span> Low Risk</span>
+          <span><span class="eg-leg-dot" style="background:#a064ff"></span> Crypto Wallet</span>
+          <span><span class="eg-leg-dot" style="background:#00e5ff"></span> Shell Company</span>
+        </div>
+        <div class="eg-zoom-bar">
+          <button onclick="egZoom(1.2)"><i class="fas fa-plus"></i></button>
+          <button onclick="egZoom(0.83)"><i class="fas fa-minus"></i></button>
+          <button onclick="egFitView()"><i class="fas fa-expand"></i></button>
+        </div>
+      </div>
+      <!-- Graph Sidebar -->
+      <div class="eg-sidebar">
+        <div class="egs-card glass-card" id="eg-node-detail">
+          <div class="egs-title"><i class="fas fa-circle-info"></i> Node Details</div>
+          <div class="egs-placeholder">Click any node to inspect its connections and risk profile.</div>
+        </div>
+        <div class="egs-card glass-card">
+          <div class="egs-title"><i class="fas fa-chart-pie"></i> Graph Stats</div>
+          <div class="eg-stats-grid">
+            <div class="eg-stat"><span class="eg-stat-num" id="eg-nodes-count">0</span><span class="eg-stat-lbl">Entities</span></div>
+            <div class="eg-stat"><span class="eg-stat-num" id="eg-edges-count">0</span><span class="eg-stat-lbl">Connections</span></div>
+            <div class="eg-stat"><span class="eg-stat-num red" id="eg-high-count">0</span><span class="eg-stat-lbl">High Risk</span></div>
+            <div class="eg-stat"><span class="eg-stat-num" id="eg-clusters">0</span><span class="eg-stat-lbl">Clusters</span></div>
+          </div>
+        </div>
+        <div class="egs-card glass-card">
+          <div class="egs-title"><i class="fas fa-route"></i> Suspicious Paths</div>
+          <div id="eg-paths" class="eg-paths"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+<!-- ░░  NEW v4: AI COMPLIANCE COPILOT     ░░ -->
+<!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+<!-- Floating Copilot Button -->
+<div id="copilot-fab" onclick="toggleCopilot()">
+  <div class="cop-fab-ring"></div>
+  <i class="fas fa-robot"></i>
+  <span class="cop-fab-badge" id="cop-badge">AI</span>
+</div>
+
+<!-- Copilot Panel -->
+<div id="copilot-panel" class="glass-card">
+  <div class="cop-header">
+    <div class="cop-title">
+      <div class="cop-avatar"><i class="fas fa-robot"></i></div>
+      <div>
+        <div class="cop-name">AML Copilot</div>
+        <div class="cop-status"><span></span> Online — Compliance AI</div>
+      </div>
+    </div>
+    <button class="cop-close" onclick="toggleCopilot()"><i class="fas fa-times"></i></button>
+  </div>
+  <div class="cop-messages" id="cop-messages">
+    <div class="cop-msg cop-msg-bot">
+      <div class="cop-msg-avatar"><i class="fas fa-robot"></i></div>
+      <div class="cop-msg-bubble">
+        👋 Hi! I'm your <strong>AML Compliance Copilot</strong>. Ask me anything about money laundering patterns, regulations, risk scores, or how the platform works.
+        <div class="cop-suggestions">
+          <button onclick="copilotAsk('What is smurfing?')">What is smurfing?</button>
+          <button onclick="copilotAsk('How does layering work?')">How does layering work?</button>
+          <button onclick="copilotAsk('What triggers a high risk score?')">High risk score triggers?</button>
+          <button onclick="copilotAsk('What is SAR filing?')">What is SAR filing?</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="cop-input-row">
+    <input type="text" id="cop-input" placeholder="Ask about AML, risk scores, regulations..." onkeydown="if(event.key==='Enter')copilotSend()"/>
+    <button class="cop-send" onclick="copilotSend()"><i class="fas fa-paper-plane"></i></button>
+  </div>
+</div>
+
+<!-- ░░ FIXED CONTROLS ░░ -->
+<button id="back-to-top" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
+
+<!-- ░░ TOAST ░░ -->
+<div id="toast" class="toast"></div>
+
+<!-- ░░ ALERT DETAIL MODAL ░░ -->
+<div id="alert-modal" class="modal-overlay" onclick="closeModal(event)">
+  <div class="modal-box glass-card">
+    <button class="modal-close" onclick="closeAlertModal()"><i class="fas fa-times"></i></button>
+    <h3 id="modal-title">Alert Detail</h3>
+    <div id="modal-content"></div>
+  </div>
+</div>
+
+<!-- ░░ CASE MODAL ░░ -->
+<div id="case-modal" class="modal-overlay" onclick="if(event.target===this)closeCaseModal()">
+  <div class="modal-box glass-card" id="case-modal-body"></div>
+</div>
+
+<!-- SCRIPTS — Three.js via ES module import map -->
+<script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.168.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.168.0/examples/jsm/"
+  }
+}
+</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
